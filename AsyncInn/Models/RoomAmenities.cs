@@ -10,7 +10,7 @@ namespace AsyncInn.Models
         public int AmenitiesID { get; set; }
         public int RoomID { get; set; }
 
-        public ICollection<Amenities> Amenities { get; set; }
-        public ICollection<Room> Rooms { get; set; }
+        public Amenities Amenity { get; set; }
+        public Room Room { get; set; }
     }
 }
