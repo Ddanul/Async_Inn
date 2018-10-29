@@ -79,7 +79,7 @@ namespace AsyncInn.Data
                 {
                     ID = 3,
                     Name = "Chicago Snooze",
-                    Layout = (Layout)3
+                    Layout = (Layout)0
                 },
                 new Room
                 {
@@ -97,7 +97,35 @@ namespace AsyncInn.Data
                 {
                     ID = 6,
                     Name = "Parrot Paradise",
-                    Layout = (Layout)3
+                    Layout = (Layout)0
+                }
+                );
+
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                {
+                    ID = 1,
+                    Name = "Coffee Maker"
+                },
+                new Amenities
+                {
+                    ID = 2,
+                    Name = "A/C"
+                },
+                new Amenities
+                {
+                    ID = 3,
+                    Name = "Apple Corer"
+                },
+                new Amenities
+                {
+                    ID = 4,
+                    Name = "Toilet"
+                },
+                new Amenities
+                {
+                    ID = 5,
+                    Name = "Microwave"
                 }
                 );
         }
