@@ -3,14 +3,16 @@ using AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDBContext))]
-    partial class AsyncInnDBContextModelSnapshot : ModelSnapshot
+    [Migration("20181028224259_SeededDB")]
+    partial class SeededDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,10 +107,10 @@ namespace AsyncInn.Migrations
                     b.HasData(
                         new { ID = 1, Layout = 1, Name = "Seattle Snooze" },
                         new { ID = 2, Layout = 2, Name = "Seattle Skip" },
-                        new { ID = 3, Layout = 0, Name = "Chicago Snooze" },
+                        new { ID = 3, Layout = 3, Name = "Chicago Snooze" },
                         new { ID = 4, Layout = 1, Name = "Chicago Skip" },
                         new { ID = 5, Layout = 2, Name = "Clown Nightmare" },
-                        new { ID = 6, Layout = 0, Name = "Parrot Paradise" }
+                        new { ID = 6, Layout = 3, Name = "Parrot Paradise" }
                     );
                 });
 

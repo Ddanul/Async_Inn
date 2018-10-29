@@ -23,6 +23,111 @@ namespace AsyncInn.Data
             modelBuilder.Entity<RoomAmenities>().HasKey(
                 ra => new { ra.AmenitiesID, ra.RoomID }
                 );
+
+            modelBuilder.Entity<Hotel>().HasData(
+                new Hotel
+                {
+                    ID = 1,
+                    Name = "Async Inn",
+                    Address = "123 Async St.",
+                    Phone = "123-456-7890"
+                },
+                new Hotel
+                {
+                    ID = 2,
+                    Name = "Hyatt",
+                    Address = "123 Hyatt St.",
+                    Phone = "281-456-7890"
+                },
+                new Hotel
+                {
+                    ID = 3,
+                    Name = "Hilton",
+                    Address = "123 Hilton St.",
+                    Phone = "206-927-2846"
+                },
+                new Hotel
+                {
+                    ID = 4,
+                    Name = "Four Seasaons",
+                    Address = "123 Season St.",
+                    Phone = "294-628-1846"
+                },
+                new Hotel
+                {
+                    ID = 5,
+                    Name = "Westin",
+                    Address = "123 Westin St.",
+                    Phone = "294-194-1847"
+                }
+                );
+
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    ID = 1,
+                    Name = "Seattle Snooze",
+                    Layout = (Layout)1
+                },
+                new Room
+                {
+                    ID = 2,
+                    Name = "Seattle Skip",
+                    Layout = (Layout)2
+                },
+                new Room
+                {
+                    ID = 3,
+                    Name = "Chicago Snooze",
+                    Layout = (Layout)0
+                },
+                new Room
+                {
+                    ID = 4,
+                    Name = "Chicago Skip",
+                    Layout = (Layout)1
+                },
+                new Room
+                {
+                    ID = 5,
+                    Name = "Clown Nightmare",
+                    Layout = (Layout)2
+                },
+                new Room
+                {
+                    ID = 6,
+                    Name = "Parrot Paradise",
+                    Layout = (Layout)0
+                }
+                );
+
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                {
+                    ID = 1,
+                    Name = "Coffee Maker"
+                },
+                new Amenities
+                {
+                    ID = 2,
+                    Name = "A/C"
+                },
+                new Amenities
+                {
+                    ID = 3,
+                    Name = "Apple Corer"
+                },
+                new Amenities
+                {
+                    ID = 4,
+                    Name = "Toilet"
+                },
+                new Amenities
+                {
+                    ID = 5,
+                    Name = "Microwave"
+                }
+                );
         }
 
         public DbSet<Room> Rooms { get; set; }
