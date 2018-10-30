@@ -19,7 +19,7 @@ namespace AsyncInn
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 
-        public IConfiguration Configuration { get; set;}
+        public IConfiguration Configuration { get; set; }
 
         public Startup(IConfiguration configuration)
         {
@@ -34,6 +34,8 @@ namespace AsyncInn
      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IRooms, RoomService>();
+            services.AddTransient<IHotels, HotelService>();
+            services.AddTransient<IAmenities, AmenitiesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
