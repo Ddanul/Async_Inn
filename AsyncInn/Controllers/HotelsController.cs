@@ -26,6 +26,16 @@ namespace AsyncInn.Controllers
             return View(await _hotels.GetHotels());
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var hotels = await _hotels.GetHotels();
+
+            hotels = hotels.Where(x => x.Name.Contains(searchString));
+
+            return View(hotels);
+        }
+
         // GET: Hotels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
