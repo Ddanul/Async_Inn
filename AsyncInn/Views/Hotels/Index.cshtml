@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 
 
@@ -14,27 +15,10 @@
 <body>
     <h1 class="title">Hotel Index</h1>
 
-    <h2>Navigation:</h2>
-    <ul class="nav_menu">
-        <li>
-            <a href="/Home">Home</a>
-        </li>
-        <li>
-            <a href="/Rooms">Rooms</a>
-        </li>
-        <li>
-            <a href="/HotelRooms">Hotel Rooms</a>
-        </li>
-        <li>
-            <a href="/Hotels">Hotels</a>
-        </li>
-        <li>
-            <a href="/RoomAmenities">Room Amenities</a>
-        </li>
-        <li>
-            <a href="/Amenities">Amenities</a>
-        </li>
-    </ul>
+    <form method="post" asp-controller="Hotels" asp-action="Index">
+        <input type="text" asp-route-data="searchString" placeholder="Enter Hotel Name Here" name="searchString" />
+        <button type="submit">Search!</button>
+    </form>
 
     <p>
         <a asp-action="Create">Create New</a>

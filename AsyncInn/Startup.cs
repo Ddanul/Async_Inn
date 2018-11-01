@@ -23,7 +23,13 @@ namespace AsyncInn
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            //No longer needed since we are using secrets.json now
+            //Configuration = configuration;
+
+            //telling configuration to generate and use the UserSecrets
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -31,7 +37,8 @@ namespace AsyncInn
             services.AddMvc();
 
             services.AddDbContext<AsyncInnDBContext>(options =>
-     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
+     );
 
             services.AddTransient<IRooms, RoomService>();
             services.AddTransient<IHotels, HotelService>();
