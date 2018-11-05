@@ -66,14 +66,10 @@ namespace AsyncInn.Controllers
         }
 
         // GET: HotelRooms/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int HotelID, int RoomNumber)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var hotelRoom = await _context.HotelRooms.FindAsync(id);
+            var hotelRoom = await _context.HotelRooms
+                .FirstOrDefaultAsync(m => m.HotelID == HotelID && m.RoomNumber == RoomNumber);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -86,9 +82,9 @@ namespace AsyncInn.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
+        public async Task<IActionResult> Edit(int HotelID, int RoomNumber, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
         {
-            if (id != hotelRoom.HotelID)
+            if (HotelID != hotelRoom.HotelID)
             {
                 return NotFound();
             }
@@ -119,11 +115,6 @@ namespace AsyncInn.Controllers
         // GET: HotelRooms/Delete/5
         public async Task<IActionResult> Delete(int HotelID, int RoomNumber)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
             var hotelRoom = await _context.HotelRooms
                 .FirstOrDefaultAsync(m => m.HotelID == HotelID && m.RoomNumber == RoomNumber);
 
