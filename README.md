@@ -15,6 +15,10 @@ This project uses ASP.Net Core framework to implement a simple web app following
 <img width="960" alt="asyncinnfinal04" src="https://user-images.githubusercontent.com/25948479/47976043-6bd15600-e065-11e8-8ad0-5dbf1ac02769.PNG">
 
 ## Use
+Visit https://asyncinndanul.azurewebsites.net/Rooms
+
+OR
+
 To run this app, clone the repo and open the .sln file on Visual Studio. Then compile the code and open in default browser.  Click on links to navigate through the site. 
 
 ## Authors & Contributors
