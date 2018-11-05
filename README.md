@@ -3,16 +3,22 @@ This project uses ASP.Net Core framework to implement a simple web app following
 
 ## Visual
 ## Index Page
-<img width="629" alt="asyncinn01" src="https://user-images.githubusercontent.com/25948479/47536539-80e40300-d875-11e8-85a7-4490764f3b17.PNG">
-
+<img width="953" alt="asyncinnfinal01" src="https://user-images.githubusercontent.com/25948479/47975962-0da47300-e065-11e8-8800-df2bc7b33c3a.PNG">
 
 ## Hotels Index Page
-<img width="591" alt="lab14_hotelidx" src="https://user-images.githubusercontent.com/25948479/47624334-c6ecd100-dad8-11e8-9c04-b2c2737b55c2.PNG">
+<img width="926" alt="asyncinnfinal03" src="https://user-images.githubusercontent.com/25948479/47975964-0da47300-e065-11e8-8160-f20177df6913.PNG">
 
 ## Rooms Index Page
-<img width="593" alt="lab14_roomidx" src="https://user-images.githubusercontent.com/25948479/47624335-c7856780-dad8-11e8-88cd-dbd19aea88b9.PNG">
+<img width="815" alt="asyncinnfinal02" src="https://user-images.githubusercontent.com/25948479/47975963-0da47300-e065-11e8-8b5a-f1a8fccccc15.PNG">
+
+## Database Schema
+<img width="960" alt="asyncinnfinal04" src="https://user-images.githubusercontent.com/25948479/47976043-6bd15600-e065-11e8-8ad0-5dbf1ac02769.PNG">
 
 ## Use
+Visit https://asyncinndanul.azurewebsites.net/Rooms
+
+OR
+
 To run this app, clone the repo and open the .sln file on Visual Studio. Then compile the code and open in default browser.  Click on links to navigate through the site. 
 
 ## Authors & Contributors
