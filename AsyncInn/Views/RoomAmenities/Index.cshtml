@@ -13,17 +13,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th>Room</th>
+            <th>Amenity</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>@item.RoomID</td>
+                <td>@item.AmenitiesID</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new { RoomID = item.RoomID, AmenitiesID = item.AmenitiesID }) |
+                    @Html.ActionLink("Details", "Details", new { RoomID = item.RoomID, AmenitiesID = item.AmenitiesID }) |
+                    @Html.ActionLink("Delete", "Delete", new { RoomID = item.RoomID, AmenitiesID = item.AmenitiesID })
                 </td>
             </tr>
         }
