@@ -37,7 +37,7 @@ namespace AsyncInn
             services.AddMvc();
 
             services.AddDbContext<AsyncInnDBContext>(options =>
-     options.UseSqlServer(Configuration["ConnectionStrings:ProductionDB"])
+     options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
      );
 
             services.AddTransient<IRooms, RoomService>();

@@ -35,10 +35,10 @@ namespace XUnitTestProject1
         }
 
         /// <summary>
-        /// test can save hotel in db
+        /// test can create, read, update, and delete hotel in db
         /// </summary>
         [Fact]
-        public async void SaveHotelInDB()
+        public async void CrudHotelInDB()
         {
             //Arrange
             //setup our DB
@@ -66,6 +66,23 @@ namespace XUnitTestProject1
 
                 //Assert
                 Assert.Equal("Test Hotel", hotelName.Name);
+
+                //UPDATE
+                hotel.Name = "Update Hotel";
+                context.Hotels.Update(hotel);
+                context.SaveChanges();
+
+                var updatedHotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == hotel.Name);
+
+                Assert.Equal("Update Hotel", updatedHotel.Name);
+
+                //DELETE
+                context.Hotels.Remove(hotel);
+                context.SaveChanges();
+
+                var deletedHotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == hotel.Name);
+
+                Assert.True(deletedHotel==null);
             }
 
             //Assert
@@ -98,10 +115,10 @@ namespace XUnitTestProject1
         }
 
         /// <summary>
-        /// test can save room in db
+        /// test can create, save, update, and delete a room in db
         /// </summary>
         [Fact]
-        public async void SaveRoomInDB()
+        public async void CrudRoomInDB()
         {
             //Arrange
             //setup our DB
@@ -128,6 +145,24 @@ namespace XUnitTestProject1
 
                 //Assert
                 Assert.Equal("Joss Stone", roomName.Name);
+
+                //UPDATE
+                room.Name = "Emma Stone";
+
+                context.Update(room);
+                context.SaveChanges();
+
+                var updatedRoom = await context.Rooms.FirstOrDefaultAsync(x => x.Name == "Emma Stone");
+
+                Assert.Equal("Emma Stone", updatedRoom.Name);
+
+                //DELETE
+                context.Remove(room);
+                context.SaveChanges();
+
+                var deletedRoom = await context.Rooms.FirstOrDefaultAsync(x => x.Name == "Emma Stone");
+
+                Assert.True(deletedRoom == null);
             }
 
             //Assert
@@ -159,10 +194,10 @@ namespace XUnitTestProject1
         }
 
         /// <summary>
-        /// test can save amenity in db
+        /// test can create, save, update, delete amenity in db
         /// </summary>
         [Fact]
-        public async void SaveAmenityInDB()
+        public async void CrudAmenityInDB()
         {
             //Arrange
             //setup our DB
@@ -188,6 +223,26 @@ namespace XUnitTestProject1
 
                 //Assert
                 Assert.Equal("Coffee Maker", amenityName.Name);
+
+                //UPDATE
+
+                amenity.Name = "Dog Spa";
+
+                context.Update(amenity);
+                context.SaveChanges();
+
+                var updatedAmenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == "Dog Spa");
+
+                Assert.Equal("Dog Spa", updatedAmenity.Name);
+
+                //DELETE
+
+                context.Remove(amenity);
+                context.SaveChanges();
+
+                var deletedAmenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == "Dog Spa");
+
+                Assert.True(deletedAmenity == null);
             }
 
             //Assert
