@@ -41,6 +41,8 @@ namespace AsyncInn.Controllers
         // GET: HotelRooms/Create
         public IActionResult Create()
         {
+            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "Name");
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name");
             return View();
         }
 
@@ -51,12 +53,22 @@ namespace AsyncInn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
         {
-            if (ModelState.IsValid)
+            Hotel checkHotel = await _context.Hotels.FirstOrDefaultAsync(x => x.ID == hotelRoom.HotelID);
+            Room checkRoom = await _context.Rooms.FirstOrDefaultAsync(x => x.ID == hotelRoom.RoomID);
+
+            if (checkHotel == null || checkRoom == null)
+            {
+                string error = "Invalid hotel/room id";
+                return View(error);
+            }
+            else if (ModelState.IsValid)
             {
                 _context.Add(hotelRoom);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "ID", hotelRoom.RoomID);
             return View(hotelRoom);
         }
 
